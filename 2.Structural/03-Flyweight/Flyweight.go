@@ -8,16 +8,16 @@ type Flyweight interface {
 	GetState()
 }
 
-// ConcreateFlyweight
-type ConcreateFlyweight struct {
+// ConcreteFlyweight
+type ConcreteFlyweight struct {
 	extrinsicState string
 }
 
-func (c *ConcreateFlyweight) Operation(extrinsicState string) {
+func (c *ConcreteFlyweight) Operation(extrinsicState string) {
 	c.extrinsicState = extrinsicState
 }
 
-func (c *ConcreateFlyweight) GetState() {
+func (c *ConcreteFlyweight) GetState() {
 	fmt.Println(c.extrinsicState)
 }
 
@@ -33,7 +33,7 @@ func NewFlyweightFactory() FlyweightFactory {
 func (ff *FlyweightFactory) GetFlyweight(key string) Flyweight {
 	fw, ok := ff.pool[key]
 	if !ok {
-		fw = new(ConcreateFlyweight)
+		fw = new(ConcreteFlyweight)
 		fw.Operation(key)
 		ff.pool[key] = fw
 	}

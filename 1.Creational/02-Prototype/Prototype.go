@@ -8,7 +8,7 @@ type IPrototype interface {
 	Clone() IPrototype
 }
 
-// ConcreatePrototype
+// ConcretePrototype
 type CPU struct {
 	Manufacturer string
 }

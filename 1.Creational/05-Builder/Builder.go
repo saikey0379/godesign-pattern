@@ -23,32 +23,32 @@ type Builder interface {
 	GetResult() Role
 }
 
-// ConcreateBuilder
-type ConcreateBuilder struct {
+// ConcreteBuilder
+type ConcreteBuilder struct {
 	role Role
 }
 
 // 增加头盔
-func (c *ConcreateBuilder) Build1() {
+func (c *ConcreteBuilder) Build1() {
 	c.role.AddParts("Helmet")
 }
 
 // 增加铠甲
-func (c *ConcreateBuilder) Build2() {
+func (c *ConcreteBuilder) Build2() {
 	c.role.AddParts("Armor")
 }
 
 // 增加靴子
-func (c *ConcreateBuilder) Build3() {
+func (c *ConcreteBuilder) Build3() {
 	c.role.AddParts("Boots")
 }
 
 // 增加武器
-func (c *ConcreateBuilder) Build4() {
+func (c *ConcreteBuilder) Build4() {
 	c.role.AddParts("Weapon")
 }
 
-func (c *ConcreateBuilder) GetResult() Role {
+func (c *ConcreteBuilder) GetResult() Role {
 	return c.role
 }
 

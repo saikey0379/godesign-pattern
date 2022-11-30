@@ -51,11 +51,11 @@ type IAbstractFactory interface {
 	CreateProductGpu(manufacturer string) Gpu
 }
 
-// ConcreateFactory1
-type ConcreateFactory1 struct{}
+// ConcreteFactory1
+type ConcreteFactory1 struct{}
 
 // CreateProductA
-func (c *ConcreateFactory1) CreateProductCpu(manufacturer string) Cpu {
+func (c *ConcreteFactory1) CreateProductCpu(manufacturer string) Cpu {
 	switch manufacturer {
 	case "AMD":
 		return &CpuAmd{}
@@ -65,21 +65,21 @@ func (c *ConcreateFactory1) CreateProductCpu(manufacturer string) Cpu {
 	return nil
 }
 
-// CreateProductB
-func (c *ConcreateFactory1) CreateProductGpu(manufacturer string) Gpu {
+// CreteProductB
+func (c *ConcreteFactory1) CreateProductGpu(manufacturer string) Gpu {
 	return nil
 }
 
-// ConcreateFactory2
-type ConcreateFactory2 struct{}
+// ConcreteFactory2
+type ConcreteFactory2 struct{}
 
 // CreateProductA
-func (g *ConcreateFactory2) CreateProductCpu(manufacturer string) Cpu {
+func (g *ConcreteFactory2) CreateProductCpu(manufacturer string) Cpu {
 	return nil
 }
 
 // CreateProductB
-func (g *ConcreateFactory2) CreateProductGpu(manufacturer string) Gpu {
+func (g *ConcreteFactory2) CreateProductGpu(manufacturer string) Gpu {
 	switch manufacturer {
 	case "AMD":
 		return &GpuAmd{}
@@ -93,9 +93,9 @@ func (g *ConcreateFactory2) CreateProductGpu(manufacturer string) Gpu {
 func NewFactory(factory string) IAbstractFactory {
 	switch factory {
 	case "CPU":
-		return &ConcreateFactory1{}
+		return &ConcreteFactory1{}
 	case "GPU":
-		return &ConcreateFactory2{}
+		return &ConcreteFactory2{}
 	default:
 		return nil
 	}

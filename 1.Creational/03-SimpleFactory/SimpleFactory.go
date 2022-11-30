@@ -11,7 +11,7 @@ type Product interface {
 	GetManufacturer()
 }
 
-// product
+// Product
 type CpuAmd struct{}
 
 func (p *CpuAmd) GetManufacturer() {
@@ -24,7 +24,7 @@ func (p *CpuItl) GetManufacturer() {
 	fmt.Println(ManufacturerItl)
 }
 
-// factory
+// Factory
 func SimpleFactory(product string) Product {
 	switch product {
 	case "AMD":
